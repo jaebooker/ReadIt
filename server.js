@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const posts = require('./controllers/posts')(app);
 
-mongoose.connect('mongodb://localhost/rotten-potatoes');
+mongoose.connect('mongodb://localhost/reddit-clone');
 app.use(bodyParser.urlencoded({ extended: true }));
 var exphbs = require('express-handlebars');
 
