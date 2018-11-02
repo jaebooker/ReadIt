@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const posts = require('./controllers/posts')(app);
+const db = require('./data/reddit-db');
 
 mongoose.connect('mongodb://localhost/reddit-clone');
 app.use(bodyParser.urlencoded({ extended: true }));

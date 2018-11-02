@@ -3,7 +3,7 @@
 {{#each posts}}
 <div class="col-sm-3">
     <br><br>
-    <center><h1>{{this.title}}</h1></center>
+    <center><h1><a href='/posts/{{this._id}}'>{{this.title}}</a></h1></center>
     <center><h4><b>{{this.author}}</b></h4></center>
     <center><h3><b>{{this.subTitle}}</b></h3></center>
     <center><h4>{{this.upvote}} Upvotes</h4></center>

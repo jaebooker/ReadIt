@@ -25,4 +25,11 @@ app.post('/posts', (req, res) => {
         console.log(err.message);
     })
 })
+app.get('/posts/:id', (req, res) => {
+    Post.findById(req.params.id).then((post) => {
+        res.render('posts-show', { post: post })
+    }).catch((err) => {
+        console.log(err.message);
+    })
+});
 };
