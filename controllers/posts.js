@@ -13,6 +13,15 @@ module.exports = function(app) {
         console.log(err);
     })
 })
+app.get("/category", function(req, res) {
+  Post.find({ category: req.params.category })
+    .then(posts => {
+        res.render("post-index", { posts });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+});
 app.get('/posts/new', (req, res) => {
     res.render('posts-new', {});
 })
