@@ -26,13 +26,11 @@ app.get('/posts/new', (req, res) => {
     res.render('posts-new', {});
 })
 app.post('/posts', (req, res) => {
-    Post.create(req.body).then((post) => {
-        res.redirect('/')
-        //res.redirect(`/posts/${post._id}`);
-    })
-    .catch((err) => {
-        console.log("...uh-oh")
-        console.log(err.message);
+    const post = new Post(req.body);
+    //save instance to data
+    post.save((err, post) => {
+    //redirect to main
+    return res.redirect(`/`);
     })
 })
 app.get('/posts/:id', (req, res) => {
