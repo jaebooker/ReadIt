@@ -29,14 +29,15 @@ app.post('/posts', (req, res) => {
     Post.create(req.body).then((post) => {
         res.redirect('/')
         //res.redirect(`/posts/${post._id}`);
-    }).catch((err) => {
+    })
+    .catch((err) => {
         console.log("...uh-oh")
         console.log(err.message);
     })
 })
 app.get('/posts/:id', (req, res) => {
-    Post.findById(req.params.id).then((post) => {
-        res.render('posts-show', { post: post })
+    Post.findById(req.params.id).populate('comments').then((post) => {
+        res.render('posts-show', { post })
     }).catch((err) => {
         console.log(err.message);
     })
