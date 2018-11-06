@@ -1,6 +1,7 @@
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const Post = require('../models/post');
+const Comment = require('../models/post');
 module.exports = function(app) {
     app.use(methodOverride('_method'))
     app.use(bodyParser.urlencoded({ extended: true }));

@@ -8,7 +8,8 @@ const Post = new Schema({
     category: { type: String, required: false },
     author: { type: String, required: false },
     summary: { type: String, required: true },
-    upvote: { type: Number, required: false }
+    upvote: { type: Number, required: false },
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 });
 
 Post.pre("save", function(next) {
