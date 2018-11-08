@@ -3,6 +3,7 @@
       <h3>{{post.category}}</h3>
       <h1>{{post.title}}</h1>
       <h2>{{post.subTitle}}</h2>
+      <h3>Written by {{post.author}}</h3>
       <h3>{{post.upvote}} upvotes</h3>
       <a href="/posts/{{post._id}}/edit"><b>Edit</b></a>
            <p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
@@ -21,7 +22,9 @@
 </form>
     <br><br>
     {{#each post.comments}}
+    <br><br>
         <p>{{this.content}}</p>
+        <br><br>
     {{/each}}
   </div>
 </div>

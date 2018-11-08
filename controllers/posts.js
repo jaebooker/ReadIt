@@ -6,6 +6,7 @@ module.exports = function(app) {
     app.use(methodOverride('_method'))
     app.use(bodyParser.urlencoded({ extended: true }));
     app.get('/', (req, res) => {
+    console.log(req.cookies);
     Post.find()
     .then(posts => {
         res.render('posts-index', { posts: posts });
