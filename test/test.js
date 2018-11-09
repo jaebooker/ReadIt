@@ -16,7 +16,14 @@ const samplePost = {
 chai.use(chaiHttp);
 
 describe('Posts', ()  => {
-
+    before(done => {
+        agent
+        .post('/login')
+        .send({ username: 'chucky@norris.norris', password: 'thereAreNoPasswords' })
+        .end(function(err, res) {
+            done();
+        });
+    });
     after(() => {
       Post.deleteMany({title: 'Best Ways To Cook A Human'}).exec((err, posts) => {
         console.log(posts)

@@ -6,7 +6,7 @@ const Post = new Schema({
     title: { type: String, required: true },
     subTitle: { type: String, required: true },
     category: { type: String, required: false },
-    author: { type: String, required: false },
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
     summary: { type: String, required: true },
     upvote: { type: Number, required: false },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
